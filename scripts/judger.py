@@ -16,7 +16,9 @@ class judger():
                 sum = self.freq[word]
         print words
         print 'sum=' + str(sum)
-        if sum >= 100:
+        weightedsum = sum / len(words)
+        print 'weightedsum=' + str(weightedsum)
+        if weightedsum >= 12:
             return True
         else:
             return False
