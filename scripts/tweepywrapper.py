@@ -46,7 +46,10 @@ class tweepywrapper(StreamListener):
         return favs
 
     def setfav(self, id):
-        self.api.create_favorite(id)
+        try:
+            self.api.create_favorite(id)
+        except tweepy.TweepError, e:
+            print e
 
     def on_status(self, status):
 

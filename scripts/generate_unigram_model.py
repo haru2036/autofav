@@ -10,11 +10,12 @@ def generate_unigram_model(favs):
     except:
         freqfav = {}
 
+    esc = [u'…', u'・', u'.', u',', u'、', u'。', u'!', u'?', u'！', u'？']
     for favlist in favs:
         for fav in favlist:
-            print type(fav.text)
             itemlist = mecabCaller.parse(fav.text)
-            for item in itemlist:
+            for itemraw in itemlist:
+                item = [x for x in itemraw if x in esc]
                 if item in freqfav:
                     freqfav[item] += 1
                 else:

@@ -10,15 +10,18 @@ class judger():
 
     def judge(self, text):
         sum = 0
+        esc = [u'…', u'・', u'.', u',', u'、', u'。', u'!', u'?', u'！', u'？']
         words = mecabCaller.parse(text)
         for word in words:
-            if word in self.freq:
+            if word in esc:
+                pass
+            elif word in self.freq:
                 sum = self.freq[word]
         print words
         print 'sum=' + str(sum)
         weightedsum = sum / len(words)
         print 'weightedsum=' + str(weightedsum)
-        if weightedsum >= 12:
+        if weightedsum >= 5:
             return True
         else:
             return False
