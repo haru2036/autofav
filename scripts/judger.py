@@ -21,7 +21,7 @@ class judger():
         print 'sum=' + str(sum)
         weightedsum = sum / len(words)
         print 'weightedsum=' + str(weightedsum)
-        if weightedsum >= 5:
+        if weightedsum >= 8:
             return True
         else:
             return False

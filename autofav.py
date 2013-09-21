@@ -13,6 +13,10 @@ stream = Stream(twpy.auth, twpy, secure=True)
 try:
     stream.userstream()
 except(TweepError):
+    stream.userstream()
     print TweepError
+except(UnicodeEncodeError):
+    print UnicodeEncodeError
+    stream.userstream()
 
 __author__ = 'haruka'
